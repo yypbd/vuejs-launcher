@@ -3,7 +3,9 @@
 uses
   EMemLeaks,
   Vcl.Forms,
-  Form.VuejsLauncherMain in 'Form.VuejsLauncherMain.pas' {FormVuejsLauncherMain};
+  Form.VuejsLauncherMain in 'Form.VuejsLauncherMain.pas' {FormVuejsLauncherMain},
+  Config.Form in 'Config\Config.Form.pas' {FormConfig},
+  AppConfig in 'Config\AppConfig.pas';
 
 {$R *.res}
 

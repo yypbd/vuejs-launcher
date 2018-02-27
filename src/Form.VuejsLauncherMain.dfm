@@ -14,4 +14,13 @@ object FormVuejsLauncherMain: TFormVuejsLauncherMain
   Position = poScreenCenter
   PixelsPerInch = 96
   TextHeight = 13
+  object BitBtnConfig: TBitBtn
+    Left = 16
+    Top = 12
+    Width = 113
+    Height = 45
+    Caption = 'Config'
+    TabOrder = 0
+    OnClick = BitBtnConfigClick
+  end
 end
