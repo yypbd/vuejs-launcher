@@ -5,7 +5,8 @@ uses
   Vcl.Forms,
   Form.VuejsLauncherMain in 'Form.VuejsLauncherMain.pas' {FormVuejsLauncherMain},
   Config.Form in 'Config\Config.Form.pas' {FormConfig},
-  AppConfig in 'Config\AppConfig.pas';
+  AppConfig in 'Config\AppConfig.pas',
+  Cmd.Executor in 'Cmd\Cmd.Executor.pas';
 
 {$R *.res}
 

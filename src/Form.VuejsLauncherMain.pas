@@ -9,7 +9,9 @@ uses
 type
   TFormVuejsLauncherMain = class(TForm)
     BitBtnConfig: TBitBtn;
+    BitBtn1: TBitBtn;
     procedure BitBtnConfigClick(Sender: TObject);
+    procedure BitBtn1Click(Sender: TObject);
   private
     { Private declarations }
   protected
@@ -24,11 +26,34 @@ var
 implementation
 
 uses
-  Config.Form, AppConfig;
+  Config.Form, AppConfig, Cmd.Executor;
 
 {$R *.dfm}
 
 { TFormVuejsLauncherMain }
+
+procedure TFormVuejsLauncherMain.BitBtn1Click(Sender: TObject);
+begin
+  // D:\devel\proto\www
+  // vuejs_exam01
+
+  if DirectoryExists('D:\devel\proto\www\vuejs_exam01') then
+  begin
+    TCmdExecutor.Run( True, ['cd "D:\devel\proto\www\vuejs_exam01"', 'D:',
+                             'npm run dev'
+                            ] );
+  end
+  else
+  begin
+    TCmdExecutor.Run( True, ['npm install --global vue-cli',
+                             'cd "D:\devel\proto\www"', 'D:',
+                             'vue init webpack vuejs_exam01',
+                             'cd vuejs_exam01',
+                             'npm install',
+                             'npm run dev'
+                            ] );
+  end;
+end;
 
 procedure TFormVuejsLauncherMain.BitBtnConfigClick(Sender: TObject);
 var
