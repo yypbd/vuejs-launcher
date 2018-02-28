@@ -47,9 +47,13 @@ begin
   if FileExists(EditNodevars.Text) and (LowerCase(ExtractFileExt(EditNodevars.Text)) = '.bat') then
   begin
     AppCfgIni.Str['path', 'nodevars'] := EditNodevars.Text;
+    ModalResult := mrOk;
+  end
+  else
+  begin
+    ShowMessage( 'Nodevars.bat is not exists.' );
+    Exit;
   end;
-
-  ModalResult := mrOk;
 end;
 
 procedure TFormSettings.ButtonSelectNodevarsClick(Sender: TObject);

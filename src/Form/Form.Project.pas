@@ -47,6 +47,27 @@ end;
 
 procedure TFormProject.BitBtnOkClick(Sender: TObject);
 begin
+  if EditName.Text = '' then
+  begin
+    ShowMessage( 'Name is empty.' );
+    EditName.SetFocus;
+    Exit;
+  end;
+
+  if EditPath.Text = '' then
+  begin
+    ShowMessage( 'Path is empty.' );
+    EditPath.SetFocus;
+    Exit;
+  end;
+
+  if not System.SysUtils.DirectoryExists(EditPath.Text) then
+  begin
+    ShowMessage( 'Path is not exists.' );
+    EditPath.SetFocus;
+    Exit;
+  end;
+
   ModalResult := mrOk;
 end;
 
