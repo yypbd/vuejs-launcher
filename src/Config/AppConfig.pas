@@ -41,10 +41,10 @@ type
     procedure SetIntegerValue(Section, Name: string; const Value: Integer); override;
     procedure SetStringValue(Section, Name: string; const Value: string); override;
     function GetSpecialFolderPath(const ACSIDL: Word): String;
-    function AppDataPath: string;
   public
     destructor Destroy; override;
     procedure UpdateIni;
+    function AppDataPath: string;
   end;
 
   TAppConfigReg = class(TAppConfig)
