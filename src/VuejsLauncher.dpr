@@ -4,7 +4,7 @@ uses
   EMemLeaks,
   Vcl.Forms,
   Form.VuejsLauncherMain in 'Form.VuejsLauncherMain.pas' {FormVuejsLauncherMain},
-  Config.Form in 'Config\Config.Form.pas' {FormConfig},
+  Form.Settings in 'Config\Form.Settings.pas' {FormSettings},
   AppConfig in 'Config\AppConfig.pas',
   Cmd.Executor in 'Cmd\Cmd.Executor.pas',
   DataStore.Project in 'DataStore\DataStore.Project.pas',

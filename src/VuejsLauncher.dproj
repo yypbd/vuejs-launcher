@@ -88,8 +88,8 @@
             <Form>FormVuejsLauncherMain</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="Config\Config.Form.pas">
-            <Form>FormConfig</Form>
+        <DCCReference Include="Config\Form.Settings.pas">
+            <Form>FormSettings</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="Config\AppConfig.pas"/>

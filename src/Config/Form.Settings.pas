@@ -7,7 +7,7 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls, Vcl.Buttons;
 
 type
-  TFormConfig = class(TForm)
+  TFormSettings = class(TForm)
     Panel1: TPanel;
     EditNodevars: TEdit;
     ButtonSelectNodevars: TButton;
@@ -36,12 +36,12 @@ uses
 
 { TFormConfig }
 
-procedure TFormConfig.BitBtnCancelClick(Sender: TObject);
+procedure TFormSettings.BitBtnCancelClick(Sender: TObject);
 begin
   ModalResult := mrCancel;
 end;
 
-procedure TFormConfig.BitBtnOkClick(Sender: TObject);
+procedure TFormSettings.BitBtnOkClick(Sender: TObject);
 begin
   if FileExists(EditNodevars.Text) and (LowerCase(ExtractFileExt(EditNodevars.Text)) = '.bat') then
   begin
@@ -51,7 +51,7 @@ begin
   ModalResult := mrOk;
 end;
 
-procedure TFormConfig.ButtonSelectNodevarsClick(Sender: TObject);
+procedure TFormSettings.ButtonSelectNodevarsClick(Sender: TObject);
 var
   OpenDialog: TOpenDialog;
 begin
@@ -69,7 +69,7 @@ begin
   end;
 end;
 
-procedure TFormConfig.DoCreate;
+procedure TFormSettings.DoCreate;
 begin
   inherited;
 

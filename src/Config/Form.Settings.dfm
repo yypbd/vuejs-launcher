@@ -1,7 +1,7 @@
-object FormConfig: TFormConfig
+object FormSettings: TFormSettings
   Left = 0
   Top = 0
-  Caption = 'FormConfig'
+  Caption = 'FormSettings'
   ClientHeight = 432
   ClientWidth = 475
   Color = clBtnFace
