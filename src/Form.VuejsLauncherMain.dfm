@@ -27,7 +27,6 @@ object FormVuejsLauncherMain: TFormVuejsLauncherMain
     List = True
     ShowCaptions = True
     TabOrder = 0
-    ExplicitWidth = 759
     object ToolButtonProjectRun: TToolButton
       Left = 0
       Top = 0
@@ -93,10 +92,6 @@ object FormVuejsLauncherMain: TFormVuejsLauncherMain
     ViewStyle = vsReport
     OnContextPopup = ListViewProjectContextPopup
     OnDblClick = ListViewProjectDblClick
-    ExplicitLeft = 8
-    ExplicitTop = 55
-    ExplicitWidth = 493
-    ExplicitHeight = 150
   end
   object PopupMenuProject: TPopupMenu
     Left = 104
@@ -138,7 +133,7 @@ object FormVuejsLauncherMain: TFormVuejsLauncherMain
     end
     object MenuItemTools: TMenuItem
       Caption = 'Tools'
-      object MenuItemToolsOptions: TMenuItem
+      object MenuItemToolsSettings: TMenuItem
         Action = ActionToolsSettings
       end
     end
@@ -186,7 +181,7 @@ object FormVuejsLauncherMain: TFormVuejsLauncherMain
     Left = 240
     Top = 80
     Bitmap = {
-      494C010105000800200018001800FFFFFFFF2000FFFFFFFFFFFFFFFF424D3600
+      494C010105000800240018001800FFFFFFFF2000FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000600000003000000001002000000000000048
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000

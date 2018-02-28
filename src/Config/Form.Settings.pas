@@ -1,4 +1,4 @@
-﻿unit Config.Form;
+﻿unit Form.Settings;
 
 interface
 

@@ -22,7 +22,7 @@ type
     MenuItemProjectUpdate: TMenuItem;
     MenuItemProjectDelete: TMenuItem;
     MenuItemTools: TMenuItem;
-    MenuItemToolsOptions: TMenuItem;
+    MenuItemToolsSettings: TMenuItem;
     ActionList: TActionList;
     ActionFileExit: TAction;
     ActionProjectAdd: TAction;
@@ -46,7 +46,6 @@ type
     procedure MenuItemRevealinExplorerClick(Sender: TObject);
     procedure MenuItemOpeninCommandpromptClick(Sender: TObject);
     procedure MenuItemOpenNodejsCommandpromptClick(Sender: TObject);
-    procedure MenuItemOptionsClick(Sender: TObject);
     procedure ActionFileExitExecute(Sender: TObject);
     procedure ActionToolsSettingsExecute(Sender: TObject);
     procedure ActionProjectAddExecute(Sender: TObject);
@@ -76,7 +75,7 @@ var
 implementation
 
 uses
-  Config.Form, AppConfig, Cmd.Executor, Cmd.Runner, Project.Form;
+  Form.Settings, AppConfig, Cmd.Executor, Cmd.Runner, Project.Form;
 
 {$R *.dfm}
 
@@ -183,15 +182,15 @@ end;
 
 procedure TFormVuejsLauncherMain.ActionToolsSettingsExecute(Sender: TObject);
 var
-  FormConfig: TFormConfig;
+  FormSettings: TFormSettings;
 begin
-  FormConfig := TFormConfig.Create( nil );
+  FormSettings := TFormSettings.Create( nil );
   try
-    if FormConfig.ShowModal = mrOk then
+    if FormSettings.ShowModal = mrOk then
     begin
     end;
   finally
-    FormConfig.Free;
+    FormSettings.Free;
   end;
 end;
 
@@ -255,20 +254,6 @@ end;
 procedure TFormVuejsLauncherMain.ListViewProjectDblClick(Sender: TObject);
 begin
   ActionProjectRun.Execute;
-end;
-
-procedure TFormVuejsLauncherMain.MenuItemOptionsClick(Sender: TObject);
-var
-  FormConfig: TFormConfig;
-begin
-  FormConfig := TFormConfig.Create( nil );
-  try
-    if FormConfig.ShowModal = mrOk then
-    begin
-    end;
-  finally
-    FormConfig.Free;
-  end;
 end;
 
 procedure TFormVuejsLauncherMain.MenuItemOpeninCommandpromptClick(
