@@ -8,11 +8,12 @@ uses
 
 type
   TFormSettings = class(TForm)
-    Panel1: TPanel;
+    PanelNodevars: TPanel;
     EditNodevars: TEdit;
     ButtonSelectNodevars: TButton;
     BitBtnOk: TBitBtn;
     BitBtnCancel: TBitBtn;
+    ShapeSep: TShape;
     procedure ButtonSelectNodevarsClick(Sender: TObject);
     procedure BitBtnOkClick(Sender: TObject);
     procedure BitBtnCancelClick(Sender: TObject);

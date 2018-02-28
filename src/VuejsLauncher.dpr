@@ -4,12 +4,12 @@ uses
   EMemLeaks,
   Vcl.Forms,
   Form.VuejsLauncherMain in 'Form.VuejsLauncherMain.pas' {FormVuejsLauncherMain},
-  Form.Settings in 'Config\Form.Settings.pas' {FormSettings},
   AppConfig in 'Config\AppConfig.pas',
   Cmd.Executor in 'Cmd\Cmd.Executor.pas',
   DataStore.Project in 'DataStore\DataStore.Project.pas',
   Form.Project in 'Form\Form.Project.pas' {FormProject},
-  Cmd.Runner in 'Cmd\Cmd.Runner.pas';
+  Cmd.Runner in 'Cmd\Cmd.Runner.pas',
+  Form.Settings in 'Form\Form.Settings.pas' {FormSettings};
 
 {$R *.res}
 
