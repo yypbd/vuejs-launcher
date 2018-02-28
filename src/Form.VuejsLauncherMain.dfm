@@ -28,7 +28,7 @@ object FormVuejsLauncherMain: TFormVuejsLauncherMain
     ShowCaptions = True
     TabOrder = 0
     ExplicitWidth = 759
-    object ToolButton1: TToolButton
+    object ToolButtonProjectRun: TToolButton
       Left = 0
       Top = 0
       Action = ActionProjectRun

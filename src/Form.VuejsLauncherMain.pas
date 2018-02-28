@@ -38,7 +38,7 @@ type
     ImageListAction: TImageList;
     ListViewProject: TListView;
     ActionProjectRun: TAction;
-    ToolButton1: TToolButton;
+    ToolButtonProjectRun: TToolButton;
     ToolButtonSep01: TToolButton;
     procedure ListViewProjectDblClick(Sender: TObject);
     procedure ListViewProjectContextPopup(Sender: TObject; MousePos: TPoint;
