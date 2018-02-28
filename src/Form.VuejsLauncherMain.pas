@@ -17,12 +17,21 @@ type
     BitBtnProjectAdd: TBitBtn;
     BitBtnProjectUpdate: TBitBtn;
     BitBtnProjectDelete: TBitBtn;
+    PopupMenuProject: TPopupMenu;
+    MenuItemRevealinExplorer: TMenuItem;
+    MenuItemOpeninCommandprompt: TMenuItem;
+    MenuItemOpenNodejsCommandprompt: TMenuItem;
     procedure BitBtnConfigClick(Sender: TObject);
     procedure BitBtn1Click(Sender: TObject);
     procedure BitBtnProjectAddClick(Sender: TObject);
     procedure BitBtnProjectUpdateClick(Sender: TObject);
     procedure BitBtnProjectDeleteClick(Sender: TObject);
     procedure ListViewProjectDblClick(Sender: TObject);
+    procedure ListViewProjectContextPopup(Sender: TObject; MousePos: TPoint;
+      var Handled: Boolean);
+    procedure MenuItemRevealinExplorerClick(Sender: TObject);
+    procedure MenuItemOpeninCommandpromptClick(Sender: TObject);
+    procedure MenuItemOpenNodejsCommandpromptClick(Sender: TObject);
   private
     { Private declarations }
     FProjectList: TProjectList;
@@ -46,7 +55,7 @@ var
 implementation
 
 uses
-  Config.Form, AppConfig, Cmd.Runner, Project.Form;
+  Config.Form, AppConfig, Cmd.Executor, Cmd.Runner, Project.Form;
 
 {$R *.dfm}
 
@@ -207,6 +216,20 @@ begin
   Result := AppCfgIni.AppDataPath + 'Project.dat';
 end;
 
+procedure TFormVuejsLauncherMain.ListViewProjectContextPopup(Sender: TObject;
+  MousePos: TPoint; var Handled: Boolean);
+var
+  ListItem: TListItem;
+begin
+  ListItem := ListViewProject.GetItemAt( MousePos.X, MousePos.Y );
+
+  if ListItem <> nil then
+  begin
+    MousePos := ListViewProject.ClientToScreen( MousePos );
+    PopupMenuProject.Popup( MousePos.X, MousePos.Y );
+  end;
+end;
+
 procedure TFormVuejsLauncherMain.ListViewProjectDblClick(Sender: TObject);
 var
   ProjectItem: TProjectItem;
@@ -226,6 +249,41 @@ begin
       TCmdNuxtjs.Run( ProjectItem.Name, ProjectItem.Path );
     end;
   end;
+end;
+
+procedure TFormVuejsLauncherMain.MenuItemOpeninCommandpromptClick(
+  Sender: TObject);
+var
+  ProjectItem: TProjectItem;
+begin
+  if ListViewProject.Selected = nil then
+    Exit;
+
+  ProjectItem := FProjectList.Items[ListViewProject.Selected.Index];
+  TCmdExecutor.OpeninCommandprompt( ProjectItem );
+end;
+
+procedure TFormVuejsLauncherMain.MenuItemOpenNodejsCommandpromptClick(
+  Sender: TObject);
+var
+  ProjectItem: TProjectItem;
+begin
+  if ListViewProject.Selected = nil then
+    Exit;
+
+  ProjectItem := FProjectList.Items[ListViewProject.Selected.Index];
+  TCmdExecutor.OpenNodejsCommandprompt( ProjectItem );
+end;
+
+procedure TFormVuejsLauncherMain.MenuItemRevealinExplorerClick(Sender: TObject);
+var
+  ProjectItem: TProjectItem;
+begin
+  if ListViewProject.Selected = nil then
+    Exit;
+
+  ProjectItem := FProjectList.Items[ListViewProject.Selected.Index];
+  TCmdExecutor.OpenExplorer( ProjectItem );
 end;
 
 procedure TFormVuejsLauncherMain.ShowProjectList;

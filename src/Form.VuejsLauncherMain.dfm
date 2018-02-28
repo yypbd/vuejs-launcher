@@ -57,6 +57,7 @@ object FormVuejsLauncherMain: TFormVuejsLauncherMain
       RowSelect = True
       TabOrder = 0
       ViewStyle = vsReport
+      OnContextPopup = ListViewProjectContextPopup
       OnDblClick = ListViewProjectDblClick
     end
     object Panel2: TPanel
@@ -92,6 +93,22 @@ object FormVuejsLauncherMain: TFormVuejsLauncherMain
         TabOrder = 2
         OnClick = BitBtnProjectDeleteClick
       end
+    end
+  end
+  object PopupMenuProject: TPopupMenu
+    Left = 428
+    Top = 80
+    object MenuItemRevealinExplorer: TMenuItem
+      Caption = 'Reveal in Windows Explorer'
+      OnClick = MenuItemRevealinExplorerClick
+    end
+    object MenuItemOpeninCommandprompt: TMenuItem
+      Caption = 'Open in Command prompt'
+      OnClick = MenuItemOpeninCommandpromptClick
+    end
+    object MenuItemOpenNodejsCommandprompt: TMenuItem
+      Caption = 'Open Node.js Command prompt'
+      OnClick = MenuItemOpenNodejsCommandpromptClick
     end
   end
 end

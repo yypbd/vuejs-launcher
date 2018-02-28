@@ -32,19 +32,21 @@ begin
 
   if DirectoryExists(ProjectPath) then
   begin
-    TCmdExecutor.Run( True, ['cd "' + ProjectPath + '"', DrivePath,
-                             'npm run dev'
-                            ] );
+    TCmdExecutor.RunNodejs( True,
+      ['cd "' + ProjectPath + '"', DrivePath,
+       'npm run dev'
+      ] );
   end
   else
   begin
-    TCmdExecutor.Run( True, ['npm install --global vue-cli',
-                             'cd "' + APath + '"', DrivePath,
-                             'vue init webpack ' + AName,
-                             'cd ' + AName,
-                             'npm install',
-                             'npm run dev'
-                            ] );
+    TCmdExecutor.RunNodejs( True,
+      ['npm install --global vue-cli',
+       'cd "' + APath + '"', DrivePath,
+       'vue init webpack ' + AName,
+       'cd ' + AName,
+       'npm install',
+       'npm run dev'
+      ] );
   end;
 
   Result := True;
@@ -63,18 +65,20 @@ begin
 
   if DirectoryExists(ProjectPath) then
   begin
-    TCmdExecutor.Run( True, ['cd "' + ProjectPath + '"', DrivePath,
-                             'npm run dev'
-                            ] );
+    TCmdExecutor.RunNodejs( True,
+      ['cd "' + ProjectPath + '"', DrivePath,
+       'npm run dev'
+      ] );
   end
   else
   begin
-    TCmdExecutor.Run( True, ['npm install -g vue-cli',
-                             'cd "' + APath + '"', DrivePath,
-                             'vue init nuxt-community/starter-template ' + AName,
-                             'cd ' + AName,
-                             'npm install',
-                             'npm run dev'
+    TCmdExecutor.RunNodejs( True,
+      ['npm install -g vue-cli',
+       'cd "' + APath + '"', DrivePath,
+       'vue init nuxt-community/starter-template ' + AName,
+       'cd ' + AName,
+       'npm install',
+       'npm run dev'
     ] );
   end;
 

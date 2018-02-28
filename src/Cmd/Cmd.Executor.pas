@@ -3,11 +3,15 @@
 interface
 
 uses
-  Winapi.Windows, System.Classes, System.SysUtils;
+  Winapi.Windows, System.Classes, System.SysUtils, DataStore.Project;
 
 type
   TCmdExecutor = record
-    class procedure Run( ARemainAfterRun: Boolean; const ACmds: array of String ); static;
+    class procedure RunNodejs( ARemainAfterRun: Boolean; const ACmds: array of String ); static;
+
+    class procedure OpenExplorer( AProjectItem: TProjectItem ); static;
+    class procedure OpeninCommandprompt( AProjectItem: TProjectItem ); static;
+    class procedure OpenNodejsCommandprompt( AProjectItem: TProjectItem ); static;
   end;
 
 implementation
@@ -18,7 +22,43 @@ uses
 
 { TCmdExecutor }
 
-class procedure TCmdExecutor.Run(ARemainAfterRun: Boolean; const ACmds: array of String);
+class procedure TCmdExecutor.OpenExplorer(AProjectItem: TProjectItem);
+var
+  Path: string;
+begin
+  Path := AProjectItem.Path + AProjectItem.Name;
+  if not DirectoryExists(Path) then
+    Path := AProjectItem.Path;
+
+  ShellExecute( 0, 'open', 'explorer', PChar(Path), nil, SW_SHOWNORMAL );
+end;
+
+class procedure TCmdExecutor.OpeninCommandprompt(AProjectItem: TProjectItem);
+var
+  Path, Drive: string;
+begin
+  Path := AProjectItem.Path + AProjectItem.Name;
+  if not DirectoryExists(Path) then
+    Path := AProjectItem.Path;
+  Drive := ExtractFileDrive( Path );
+
+  ShellExecute(0, 'open', 'cmd.exe', PChar('/K "cd "' + IncludeTrailingPathDelimiter(Path) + '"&&' + Drive + '"'), nil, SW_SHOW);
+end;
+
+class procedure TCmdExecutor.OpenNodejsCommandprompt(
+  AProjectItem: TProjectItem);
+var
+  Path, Drive: string;
+begin
+  Path := AProjectItem.Path + AProjectItem.Name;
+  if not DirectoryExists(Path) then
+    Path := AProjectItem.Path;
+  Drive := ExtractFileDrive( Path );
+
+  ShellExecute(0, 'open', 'cmd.exe', PChar('/K ""' + AppCfgIni.Str['path', 'nodevars'] + '"&&cd "' + IncludeTrailingPathDelimiter(Path) + '"&&' + Drive + '"'), nil, SW_SHOW);
+end;
+
+class procedure TCmdExecutor.RunNodejs(ARemainAfterRun: Boolean; const ACmds: array of String);
 var
   CmdString: string;
   SB: TStringBuilder;
