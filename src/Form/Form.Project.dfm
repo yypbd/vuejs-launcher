@@ -1,9 +1,11 @@
 object FormProject: TFormProject
   Left = 0
   Top = 0
+  BorderIcons = [biSystemMenu, biMinimize]
+  BorderStyle = bsDialog
   Caption = 'FormProject'
-  ClientHeight = 240
-  ClientWidth = 470
+  ClientHeight = 237
+  ClientWidth = 464
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -14,11 +16,18 @@ object FormProject: TFormProject
   Position = poScreenCenter
   PixelsPerInch = 96
   TextHeight = 13
-  object Panel1: TPanel
+  object ShapeSep: TShape
+    Left = 16
+    Top = 160
+    Width = 422
+    Height = 1
+  end
+  object PanelName: TPanel
     Left = 16
     Top = 23
     Width = 105
     Height = 21
+    BevelInner = bvLowered
     Caption = 'Name'
     TabOrder = 0
   end
@@ -30,11 +39,12 @@ object FormProject: TFormProject
     TabOrder = 1
     Text = 'EditName'
   end
-  object Panel2: TPanel
+  object PanelPath: TPanel
     Left = 16
     Top = 63
     Width = 105
     Height = 21
+    BevelInner = bvLowered
     Caption = 'Path'
     TabOrder = 2
   end
@@ -49,15 +59,15 @@ object FormProject: TFormProject
   object ButtonSelectPath: TButton
     Left = 411
     Top = 62
-    Width = 42
+    Width = 22
     Height = 25
     Caption = '...'
     TabOrder = 4
     OnClick = ButtonSelectPathClick
   end
   object BitBtnOk: TBitBtn
-    Left = 288
-    Top = 192
+    Left = 268
+    Top = 184
     Width = 75
     Height = 25
     Caption = 'Ok'
@@ -65,20 +75,21 @@ object FormProject: TFormProject
     OnClick = BitBtnOkClick
   end
   object BitBtnCancel: TBitBtn
-    Left = 378
-    Top = 192
+    Left = 358
+    Top = 184
     Width = 75
     Height = 25
     Caption = 'Cancel'
     TabOrder = 6
     OnClick = BitBtnCancelClick
   end
-  object Panel3: TPanel
+  object PanelFramework: TPanel
     Left = 16
     Top = 103
     Width = 105
     Height = 21
-    Caption = 'Path'
+    BevelInner = bvLowered
+    Caption = 'Framework'
     TabOrder = 7
   end
   object ComboBoxFrameworkType: TComboBox

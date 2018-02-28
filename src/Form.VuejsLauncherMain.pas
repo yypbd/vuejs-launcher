@@ -75,7 +75,7 @@ var
 implementation
 
 uses
-  Form.Settings, AppConfig, Cmd.Executor, Cmd.Runner, Project.Form;
+  Form.Settings, AppConfig, Cmd.Executor, Cmd.Runner, Form.Project;
 
 {$R *.dfm}
 

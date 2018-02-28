@@ -1,4 +1,4 @@
-﻿unit Project.Form;
+﻿unit Form.Project;
 
 interface
 
@@ -8,15 +8,16 @@ uses
 
 type
   TFormProject = class(TForm)
-    Panel1: TPanel;
+    PanelName: TPanel;
     EditName: TEdit;
-    Panel2: TPanel;
+    PanelPath: TPanel;
     EditPath: TEdit;
     ButtonSelectPath: TButton;
     BitBtnOk: TBitBtn;
     BitBtnCancel: TBitBtn;
-    Panel3: TPanel;
+    PanelFramework: TPanel;
     ComboBoxFrameworkType: TComboBox;
+    ShapeSep: TShape;
     procedure ButtonSelectPathClick(Sender: TObject);
     procedure BitBtnOkClick(Sender: TObject);
     procedure BitBtnCancelClick(Sender: TObject);

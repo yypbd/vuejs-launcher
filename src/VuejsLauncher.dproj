@@ -95,7 +95,7 @@
         <DCCReference Include="Config\AppConfig.pas"/>
         <DCCReference Include="Cmd\Cmd.Executor.pas"/>
         <DCCReference Include="DataStore\DataStore.Project.pas"/>
-        <DCCReference Include="Form\Project.Form.pas">
+        <DCCReference Include="Form\Form.Project.pas">
             <Form>FormProject</Form>
             <FormType>dfm</FormType>
         </DCCReference>
