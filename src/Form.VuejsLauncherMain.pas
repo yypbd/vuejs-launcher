@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Buttons, Vcl.ComCtrls,
-  Vcl.ExtCtrls, System.UITypes, DataStore.Project;
+  Vcl.ExtCtrls, System.UITypes, DataStore.Project, Vcl.Menus;
 
 type
   TFormVuejsLauncherMain = class(TForm)
@@ -46,7 +46,7 @@ var
 implementation
 
 uses
-  Config.Form, AppConfig, Cmd.Executor, Project.Form;
+  Config.Form, AppConfig, Cmd.Runner, Project.Form;
 
 {$R *.dfm}
 
@@ -68,6 +68,7 @@ begin
   // D:\devel\proto\www
   // vuejs_exam01
 
+  {
   if DirectoryExists('D:\devel\proto\www\vuejs_exam01') then
   begin
     TCmdExecutor.Run( True, ['cd "D:\devel\proto\www\vuejs_exam01"', 'D:',
@@ -84,6 +85,7 @@ begin
                              'npm run dev'
                             ] );
   end;
+  }
 end;
 
 procedure TFormVuejsLauncherMain.BitBtnConfigClick(Sender: TObject);
@@ -214,6 +216,16 @@ begin
 
   ProjectItem := FProjectList.Items[ListViewProject.Selected.Index];
 
+  case ProjectItem.FrameworkType of
+    ftVuejs:
+    begin
+      TCmdVuejs.Run( ProjectItem.Name, ProjectItem.Path );
+    end;
+    ftNuxtjs:
+    begin
+      TCmdNuxtjs.Run( ProjectItem.Name, ProjectItem.Path );
+    end;
+  end;
 end;
 
 procedure TFormVuejsLauncherMain.ShowProjectList;

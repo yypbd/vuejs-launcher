@@ -8,7 +8,8 @@ uses
   AppConfig in 'Config\AppConfig.pas',
   Cmd.Executor in 'Cmd\Cmd.Executor.pas',
   DataStore.Project in 'DataStore\DataStore.Project.pas',
-  Project.Form in 'Form\Project.Form.pas' {FormProject};
+  Project.Form in 'Form\Project.Form.pas' {FormProject},
+  Cmd.Runner in 'Cmd\Cmd.Runner.pas';
 
 {$R *.res}
 
