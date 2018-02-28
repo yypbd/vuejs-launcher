@@ -35,7 +35,9 @@ type
 implementation
 
 uses
+  {$WARN UNIT_PLATFORM OFF}
   FileCtrl,
+  {$WARN UNIT_PLATFORM ON}
   DataStore.Project;
 
 {$R *.dfm}
