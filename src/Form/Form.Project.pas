@@ -85,7 +85,7 @@ begin
       EditName.Text := ExtractFileName( Directory );
       EditPath.Text := ExtractFilePath( Directory );
 
-      if DirectoryExists( IncludeTrailingPathDelimiter(Directory) + '.nuxt' ) then
+      if System.SysUtils.DirectoryExists( IncludeTrailingPathDelimiter(Directory) + '.nuxt' ) then
       begin
         ComboBoxFrameworkType.ItemIndex := Ord(ftNuxtjs);
       end;
