@@ -3,7 +3,7 @@ object FormVuejsLauncherMain: TFormVuejsLauncherMain
   Top = 0
   Caption = 'FormVuejsLauncherMain'
   ClientHeight = 394
-  ClientWidth = 488
+  ClientWidth = 587
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -18,7 +18,7 @@ object FormVuejsLauncherMain: TFormVuejsLauncherMain
   object ToolBar: TToolBar
     Left = 0
     Top = 0
-    Width = 488
+    Width = 587
     Height = 37
     ButtonHeight = 30
     ButtonWidth = 74
@@ -70,17 +70,17 @@ object FormVuejsLauncherMain: TFormVuejsLauncherMain
   object ListViewProject: TListView
     Left = 0
     Top = 37
-    Width = 488
+    Width = 587
     Height = 357
     Align = alClient
     Columns = <
       item
         Caption = 'Name'
-        Width = 100
+        Width = 150
       end
       item
         Caption = 'Path'
-        Width = 250
+        Width = 300
       end
       item
         Caption = 'Framework'
@@ -131,10 +131,28 @@ object FormVuejsLauncherMain: TFormVuejsLauncherMain
         Action = ActionProjectDelete
       end
     end
+    object WebBrowser1: TMenuItem
+      Caption = 'WebBrowser'
+      object MenuItemOpenWebBrowserVuejsdefault: TMenuItem
+        Action = ActionOpenWebBrowserVuejsdefault
+      end
+      object MenuItemOpenWebBrowserNuxtjsdefault: TMenuItem
+        Action = ActionOpenWebBrowserNuxtjsdefault
+      end
+      object MenuItemOpenWebBrowserCustomport: TMenuItem
+        Action = ActionOpenWebBrowserCustomport
+      end
+    end
     object MenuItemTools: TMenuItem
       Caption = 'Tools'
       object MenuItemToolsSettings: TMenuItem
         Action = ActionToolsSettings
+      end
+    end
+    object Help1: TMenuItem
+      Caption = 'Help'
+      object About1: TMenuItem
+        Action = ActionHelpAbout
       end
     end
   end
@@ -143,33 +161,59 @@ object FormVuejsLauncherMain: TFormVuejsLauncherMain
     Left = 172
     Top = 80
     object ActionFileExit: TAction
+      Category = 'File'
       Caption = 'Exit'
       OnExecute = ActionFileExitExecute
     end
     object ActionProjectRun: TAction
+      Category = 'Project'
       Caption = 'Run'
       ImageIndex = 0
       OnExecute = ActionProjectRunExecute
     end
     object ActionProjectAdd: TAction
+      Category = 'Project'
       Caption = 'Add'
       ImageIndex = 1
       OnExecute = ActionProjectAddExecute
     end
     object ActionProjectUpdate: TAction
+      Category = 'Project'
       Caption = 'Update'
       ImageIndex = 2
       OnExecute = ActionProjectUpdateExecute
     end
     object ActionProjectDelete: TAction
+      Category = 'Project'
       Caption = 'Delete'
       ImageIndex = 3
       OnExecute = ActionProjectDeleteExecute
     end
     object ActionToolsSettings: TAction
+      Category = 'Tools'
       Caption = 'Settings'
       ImageIndex = 4
       OnExecute = ActionToolsSettingsExecute
+    end
+    object ActionOpenWebBrowserVuejsdefault: TAction
+      Category = 'WebBrowser'
+      Caption = 'Vue.js default - http://localhost:8080'
+      OnExecute = ActionOpenWebBrowserVuejsdefaultExecute
+    end
+    object ActionOpenWebBrowserNuxtjsdefault: TAction
+      Category = 'WebBrowser'
+      Caption = 'Nuxt.js default - http://localhost:3000'
+      OnExecute = ActionOpenWebBrowserNuxtjsdefaultExecute
+    end
+    object ActionOpenWebBrowserCustomport: TAction
+      Category = 'WebBrowser'
+      Caption = 'Custom HTTP port'
+      OnExecute = ActionOpenWebBrowserCustomportExecute
+    end
+    object ActionHelpAbout: TAction
+      Category = 'Help'
+      Caption = 'About'
+      OnExecute = ActionHelpAboutExecute
     end
   end
   object ImageListAction: TImageList
@@ -181,7 +225,7 @@ object FormVuejsLauncherMain: TFormVuejsLauncherMain
     Left = 240
     Top = 80
     Bitmap = {
-      494C010105000800240018001800FFFFFFFF2000FFFFFFFFFFFFFFFF424D3600
+      494C0101050008002C0018001800FFFFFFFF2000FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000600000003000000001002000000000000048
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000

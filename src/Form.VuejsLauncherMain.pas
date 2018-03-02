@@ -40,6 +40,16 @@ type
     ActionProjectRun: TAction;
     ToolButtonProjectRun: TToolButton;
     ToolButtonSep01: TToolButton;
+    WebBrowser1: TMenuItem;
+    MenuItemOpenWebBrowserVuejsdefault: TMenuItem;
+    MenuItemOpenWebBrowserNuxtjsdefault: TMenuItem;
+    MenuItemOpenWebBrowserCustomport: TMenuItem;
+    ActionOpenWebBrowserVuejsdefault: TAction;
+    ActionOpenWebBrowserNuxtjsdefault: TAction;
+    ActionOpenWebBrowserCustomport: TAction;
+    ActionHelpAbout: TAction;
+    Help1: TMenuItem;
+    About1: TMenuItem;
     procedure ListViewProjectDblClick(Sender: TObject);
     procedure ListViewProjectContextPopup(Sender: TObject; MousePos: TPoint;
       var Handled: Boolean);
@@ -52,6 +62,10 @@ type
     procedure ActionProjectUpdateExecute(Sender: TObject);
     procedure ActionProjectDeleteExecute(Sender: TObject);
     procedure ActionProjectRunExecute(Sender: TObject);
+    procedure ActionOpenWebBrowserVuejsdefaultExecute(Sender: TObject);
+    procedure ActionOpenWebBrowserNuxtjsdefaultExecute(Sender: TObject);
+    procedure ActionOpenWebBrowserCustomportExecute(Sender: TObject);
+    procedure ActionHelpAboutExecute(Sender: TObject);
   private
     { Private declarations }
     FProjectList: TProjectList;
@@ -75,7 +89,8 @@ var
 implementation
 
 uses
-  Form.Settings, AppConfig, Cmd.Executor, Cmd.Runner, Form.Project;
+  Form.Settings, AppConfig, Cmd.Executor, Cmd.Runner, Cmd.WebBrowser,
+  Form.Project;
 
 {$R *.dfm}
 
@@ -84,6 +99,40 @@ uses
 procedure TFormVuejsLauncherMain.ActionFileExitExecute(Sender: TObject);
 begin
   Close;
+end;
+
+procedure TFormVuejsLauncherMain.ActionHelpAboutExecute(Sender: TObject);
+begin
+  TCmdWebBrowser.OpenWebSite('https://github.com/yypbd/vuejs-launcher');
+end;
+
+procedure TFormVuejsLauncherMain.ActionOpenWebBrowserCustomportExecute(
+  Sender: TObject);
+var
+  Value: string;
+  Port: Integer;
+begin
+  if InputQuery( 'Port', 'Input port number', Value ) then
+  begin
+    Port := StrToIntDef( Value, 0 );
+
+    if (Port < 1) or (Port > 65535) then
+      Exit;
+
+    TCmdWebBrowser.OpenCustomPort( Port );
+  end;
+end;
+
+procedure TFormVuejsLauncherMain.ActionOpenWebBrowserNuxtjsdefaultExecute(
+  Sender: TObject);
+begin
+  TCmdWebBrowser.OpenNuxtjs;
+end;
+
+procedure TFormVuejsLauncherMain.ActionOpenWebBrowserVuejsdefaultExecute(
+  Sender: TObject);
+begin
+  TCmdWebBrowser.OpenVuejs;
 end;
 
 procedure TFormVuejsLauncherMain.ActionProjectAddExecute(Sender: TObject);

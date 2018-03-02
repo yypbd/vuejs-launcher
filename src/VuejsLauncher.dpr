@@ -9,7 +9,8 @@ uses
   DataStore.Project in 'DataStore\DataStore.Project.pas',
   Form.Project in 'Form\Form.Project.pas' {FormProject},
   Cmd.Runner in 'Cmd\Cmd.Runner.pas',
-  Form.Settings in 'Form\Form.Settings.pas' {FormSettings};
+  Form.Settings in 'Form\Form.Settings.pas' {FormSettings},
+  Cmd.WebBrowser in 'Cmd\Cmd.WebBrowser.pas';
 
 {$R *.res}
 
