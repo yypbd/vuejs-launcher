@@ -144,7 +144,7 @@ begin
   try
     FormProject.Caption := 'Add project';
     FormProject.EditName.Text := '';
-    FormProject.EditPath.Text := '';
+    FormProject.EditPath.Text := AppCfgIni.Str['path', 'DefaultProjectPath'];
     FormProject.ComboBoxFrameworkType.ItemIndex := 0;
 
     if FormProject.ShowModal = mrOk then

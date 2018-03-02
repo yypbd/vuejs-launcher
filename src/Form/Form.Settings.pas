@@ -14,9 +14,13 @@ type
     BitBtnOk: TBitBtn;
     BitBtnCancel: TBitBtn;
     ShapeSep: TShape;
+    PanelDefaultProjectPath: TPanel;
+    EditDefaultProjectPath: TEdit;
+    ButtonDefaultProjectPath: TButton;
     procedure ButtonSelectNodevarsClick(Sender: TObject);
     procedure BitBtnOkClick(Sender: TObject);
     procedure BitBtnCancelClick(Sender: TObject);
+    procedure ButtonDefaultProjectPathClick(Sender: TObject);
   private
     { Private declarations }
   protected
@@ -33,6 +37,9 @@ implementation
 {$R *.dfm}
 
 uses
+  {$WARN UNIT_PLATFORM OFF}
+  FileCtrl,
+  {$WARN UNIT_PLATFORM ON}
   AppConfig;
 
 { TFormConfig }
@@ -47,12 +54,24 @@ begin
   if FileExists(EditNodevars.Text) and (LowerCase(ExtractFileExt(EditNodevars.Text)) = '.bat') then
   begin
     AppCfgIni.Str['path', 'nodevars'] := EditNodevars.Text;
+    AppCfgIni.Str['path', 'DefaultProjectPath'] := EditDefaultProjectPath.Text;
     ModalResult := mrOk;
   end
   else
   begin
     ShowMessage( 'Nodevars.bat is not exists.' );
     Exit;
+  end;
+end;
+
+procedure TFormSettings.ButtonDefaultProjectPathClick(Sender: TObject);
+var
+  Directory: string;
+begin
+  Directory := EditDefaultProjectPath.Text;
+  if SelectDirectory( '', '', Directory ) then
+  begin
+    EditDefaultProjectPath.Text := Directory;
   end;
 end;
 
@@ -81,6 +100,7 @@ begin
   Caption := 'Vuejs Launcher Config';
 
   EditNodevars.Text := AppCfgIni.Str['path', 'nodevars'];
+  EditDefaultProjectPath.Text := AppCfgIni.Str['path', 'DefaultProjectPath'];
 end;
 
 end.

@@ -66,4 +66,30 @@ object FormSettings: TFormSettings
     TabOrder = 4
     OnClick = BitBtnCancelClick
   end
+  object PanelDefaultProjectPath: TPanel
+    Left = 16
+    Top = 59
+    Width = 105
+    Height = 21
+    BevelInner = bvLowered
+    Caption = 'Default Project Path'
+    TabOrder = 5
+  end
+  object EditDefaultProjectPath: TEdit
+    Left = 127
+    Top = 60
+    Width = 278
+    Height = 21
+    TabOrder = 6
+    Text = 'EditNodevars'
+  end
+  object ButtonDefaultProjectPath: TButton
+    Left = 411
+    Top = 58
+    Width = 22
+    Height = 25
+    Caption = '...'
+    TabOrder = 7
+    OnClick = ButtonDefaultProjectPathClick
+  end
 end
