@@ -80,7 +80,20 @@ begin
   Directory := EditPath.Text;
   if SelectDirectory( '', '', Directory ) then
   begin
-    EditPath.Text := Directory;
+    if FileExists( IncludeTrailingPathDelimiter(Directory) + 'package.json' ) then
+    begin
+      EditName.Text := ExtractFileName( Directory );
+      EditPath.Text := ExtractFilePath( Directory );
+
+      if DirectoryExists( IncludeTrailingPathDelimiter(Directory) + '.nuxt' ) then
+      begin
+        ComboBoxFrameworkType.ItemIndex := Ord(ftNuxtjs);
+      end;
+    end
+    else
+    begin
+      EditPath.Text := Directory;
+    end;
   end;
 end;
 
