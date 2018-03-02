@@ -17,7 +17,9 @@ If you have a Name folder, run npm run dev right away.
 
 ## History
 
-- v1.0.0.0
+- [v1.0.0.1](https://github.com/yypbd/vuejs-launcher/releases/tag/v1.0.0.1)
+
+- [v1.0.0.0](https://github.com/yypbd/vuejs-launcher/releases/tag/v1.0.0.0)
 
 ## License
 
